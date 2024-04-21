@@ -14,6 +14,7 @@ public:
     static QVector<Ship *> &getListShips();
     static void arrayShips();
     static void autoPlacing(QGraphicsScene *scene);
+    static void deleteListOfShips();
 
 private:
     static void rotateToVecticalPos(Ship *ship);

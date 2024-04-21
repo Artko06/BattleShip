@@ -171,6 +171,11 @@ void AddShips::autoPlacing(QGraphicsScene *scene)
     }
 }
 
+void AddShips::deleteListOfShips()
+{
+    listShips.resize(0);
+}
+
 void AddShips::rotateToVecticalPos(Ship *ship)
 {
     ship->setRotation(ship->rotation() + CORNER_ROTATION);

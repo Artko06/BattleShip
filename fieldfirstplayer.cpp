@@ -75,6 +75,7 @@ void FieldFirstPlayer::on_startButton_clicked()
                 sceneFirstPlayer->convertToPos();
                 fieldSecondPlayer->showFullScreen();
                 hideShipsBeforeTheFight(sceneFirstPlayer);
+                AddShips::deleteListOfShips();
                 errorFieldTimer->stop();
             }
         }
