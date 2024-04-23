@@ -8,6 +8,7 @@
 #include "buildbattlefield.h"
 #include "lettersonwindow.h"
 #include "qmessagequestion.h"
+#include "statswindow.h"
 
 Battlefield::Battlefield(QWidget *parent)
     : QMainWindow(parent)
@@ -324,6 +325,8 @@ void Battlefield::checkFailedClick()
     }
 
     if (isGameOver()) {
+        (ui->lcdShip->value() == 0) ? StatsWindow::AddStats(false, playWithBot)
+                                    : StatsWindow::AddStats(true, playWithBot);
         displayGameOverMessage();
         restartGame();
     }

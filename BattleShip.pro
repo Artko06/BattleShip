@@ -26,7 +26,8 @@ SOURCES += \
     ship1.cpp \
     ship2.cpp \
     ship3.cpp \
-    ship4.cpp
+    ship4.cpp \
+    statswindow.cpp
 
 HEADERS += \
     ConstAutoPlacing.h \
@@ -50,14 +51,16 @@ HEADERS += \
     ship1.h \
     ship2.h \
     ship3.h \
-    ship4.h
+    ship4.h \
+    statswindow.h
 
 FORMS += \
     battlefield.ui \
     fieldfirstplayer.ui \
     fieldsecondplayer.ui \
     mainwindow.ui \
-    settingwindow.ui
+    settingwindow.ui \
+    statswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

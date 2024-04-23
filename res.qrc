@@ -20,5 +20,6 @@
         <file>image/rightHand.png</file>
         <file>image/leftHand.png</file>
         <file>image/Aim.png</file>
+        <file>image/stats.png</file>
     </qresource>
 </RCC>

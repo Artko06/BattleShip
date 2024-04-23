@@ -16,8 +16,11 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
-   <string notr="true">SettingWindow {background-image: url(:/image/image/settingBackground.jpeg)}</string>
+   <string notr="true">SettingWindow {background-image: url(:/image/image/settingBackground.jpeg);}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="menuButton">
@@ -40,7 +43,7 @@ border: none;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset>
       <normaloff>:/image/image/menu.png</normaloff>:/image/image/menu.png</iconset>
     </property>
     <property name="iconSize">
@@ -103,6 +106,32 @@ border: none;</string>
      <string>With person</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="statsButton">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>670</y>
+      <width>421</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>36</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(99, 69, 44)</string>
+    </property>
+    <property name="text">
+     <string>Open statistics</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -116,8 +145,6 @@ border: none;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
