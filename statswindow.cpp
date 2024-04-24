@@ -2,6 +2,7 @@
 #include "ui_statswindow.h"
 
 #include "ConstField.h"
+#include "qmessagequestion.h"
 
 const short MAX_PROCENT = 100;
 
@@ -96,58 +97,70 @@ void StatsWindow::updateStatsOnWindow()
 
 void StatsWindow::on_resetStatsBotButton_clicked()
 {
-    QFile file("/home/artem_kokhan/QT/BattleShip/statsWithBot.txt");
+    if (QMessageQuestion::setQuestion(
+            tr("ВНИМАНИЕ!!!"),
+            tr("Вы уверены, что хотите сбросить данные о статистике между игроком 1 и ботом?"))
+            ->exec()
+        == QMessageBox::Yes) {
+        QFile file("/home/artem_kokhan/QT/BattleShip/statsWithBot.txt");
 
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        return;
-    }
+        if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            return;
+        }
 
-    QTextStream in(&file);
-    QStringList lines;
-    while (!in.atEnd()) {
-        lines.append(in.readLine());
-    }
+        QTextStream in(&file);
+        QStringList lines;
+        while (!in.atEnd()) {
+            lines.append(in.readLine());
+        }
 
-    // Устанавливаем значения 0 на первой и второй строках
-    if (lines.size() > 0) {
-        lines[0] = QString::number(0);
-    }
-    if (lines.size() > 1) {
-        lines[1] = QString::number(0);
-    }
+        // Устанавливаем значения 0 на первой и второй строках
+        if (lines.size() > 0) {
+            lines[0] = QString::number(0);
+        }
+        if (lines.size() > 1) {
+            lines[1] = QString::number(0);
+        }
 
-    file.resize(0);
-    QTextStream out(&file);
-    foreach (QString line, lines) {
-        out << line << "\n";
+        file.resize(0);
+        QTextStream out(&file);
+        foreach (QString line, lines) {
+            out << line << "\n";
+        }
     }
 }
 
 void StatsWindow::on_resetStatsPersonButton_clicked()
 {
-    QFile file("/home/artem_kokhan/QT/BattleShip/statsWithPerson.txt");
+    if (QMessageQuestion::setQuestion(
+            tr("ВНИМАНИЕ!!!"),
+            tr("Вы уверены, что хотите сбросить данные о статистике между игроком 1 и игроком 2?"))
+            ->exec()
+        == QMessageBox::Yes) {
+        QFile file("/home/artem_kokhan/QT/BattleShip/statsWithPerson.txt");
 
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        return;
-    }
+        if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            return;
+        }
 
-    QTextStream in(&file);
-    QStringList lines;
-    while (!in.atEnd()) {
-        lines.append(in.readLine());
-    }
+        QTextStream in(&file);
+        QStringList lines;
+        while (!in.atEnd()) {
+            lines.append(in.readLine());
+        }
 
-    // Устанавливаем значения 0 на первой и второй строках
-    if (lines.size() > 0) {
-        lines[0] = QString::number(0);
-    }
-    if (lines.size() > 1) {
-        lines[1] = QString::number(0);
-    }
+        // Устанавливаем значения 0 на первой и второй строках
+        if (lines.size() > 0) {
+            lines[0] = QString::number(0);
+        }
+        if (lines.size() > 1) {
+            lines[1] = QString::number(0);
+        }
 
-    file.resize(0);
-    QTextStream out(&file);
-    foreach (QString line, lines) {
-        out << line << "\n";
+        file.resize(0);
+        QTextStream out(&file);
+        foreach (QString line, lines) {
+            out << line << "\n";
+        }
     }
 }
