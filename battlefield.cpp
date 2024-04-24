@@ -325,6 +325,7 @@ void Battlefield::checkFailedClick()
     }
 
     if (isGameOver()) {
+        showAllShips();
         (ui->lcdShip->value() == 0) ? StatsWindow::AddStats(false, playWithBot)
                                     : StatsWindow::AddStats(true, playWithBot);
         displayGameOverMessage();
@@ -378,6 +379,23 @@ void Battlefield::setShipsBeforeTheDestroyed(BattleScene *scene, QPointF point)
             if (ship->getStartPoint() == point) {
                 ship->setVisible(true);
             }
+        }
+    }
+}
+
+void Battlefield::showAllShips()
+{
+    QVector<QGraphicsItem *> shipsOnTheField = battleFirstScene->items();
+    for (QGraphicsItem *item : shipsOnTheField) {
+        if (Ship *ship = dynamic_cast<Ship *>(item)) {
+            ship->setVisible(true);
+        }
+    }
+
+    shipsOnTheField = battleSecondScene->items();
+    for (QGraphicsItem *item : shipsOnTheField) {
+        if (Ship *ship = dynamic_cast<Ship *>(item)) {
+            ship->setVisible(true);
         }
     }
 }

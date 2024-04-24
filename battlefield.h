@@ -78,6 +78,8 @@ private:
     void handleBotMiss(BattleScene *scene, QPointF clickedPos, QGraphicsPixmapItem *image);
     void restartGame();
     void setShipsBeforeTheDestroyed(BattleScene *scene, QPointF point);
+
+    void showAllShips();
 };
 
 #endif // BATTLEFIELD_H
